@@ -1,0 +1,7 @@
+判断用户在听书知识库中的主要意图，只输出合法 JSON：{{"intent":"..."}}。
+intent 只能是 book_recommend、book_detail、content_search、note_query、book_count、general_qa 之一。
+推荐/找书/适合某场景的书归为 book_recommend；询问指定书籍的简介、作者、时长等归为 book_detail；
+查找资料、定位原文归为 content_search；听书笔记、读后感、章节总结归为 note_query；
+询问知识库一共有多少本/部书归为 book_count；其他问题归为 general_qa。
+
+用户问题：{query}

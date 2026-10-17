@@ -1,0 +1,5 @@
+从用户请求中提取可用于听书知识库检索的过滤条件，只输出 JSON 对象，字段：
+book_name、author_name、category、scene_tag、content_type。
+没有明确条件的字段使用空字符串，不要推测。content_type 若有值应与候选值相符：{content_types}。
+
+用户请求：{query}

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f59e0b">
+  <title>资料导入 · 听知</title>
+  <style>
+    :root{color-scheme:light;--ink:#242522;--muted:#777970;--paper:#f7f6f2;--panel:#fff;--line:#e9e7df;--brand:#f5a623;--brand-dark:#9a5b00;--soft:#fff4dc;--green:#237b57;--red:#b5483c;--blue:#526ea2;--shadow:0 12px 32px #2925120d}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Noto Sans SC","PingFang SC",system-ui,sans-serif;line-height:1.55}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.shell{max-width:1380px;margin:auto;padding:22px clamp(16px,3vw,42px) 48px}.top{height:58px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:11px}.logo{width:42px;height:42px;border-radius:14px;background:var(--brand);display:grid;place-items:center;color:#392609;font-weight:900;font-size:20px}.brand strong{display:block;font-size:18px}.brand small{display:block;color:var(--muted);font-size:12px}.nav{display:flex;gap:5px;padding:4px;border:1px solid var(--line);background:#fff;border-radius:13px}.nav a{padding:8px 14px;border-radius:9px;color:#696b63;font-size:14px}.nav a:hover{background:#f5f3ee}.nav .active{background:var(--soft);color:#754900;font-weight:750}.hero{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:0 0 23px}.eyebrow{color:#96600a;font-weight:800;letter-spacing:.12em;font-size:11px;margin:0 0 5px}.hero h1{font-size:clamp(27px,4vw,36px);letter-spacing:-.04em;margin:0}.hero p{margin:5px 0 0;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}.stack{display:grid;gap:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:clamp(17px,2.4vw,25px);box-shadow:var(--shadow)}.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:15px}.card h2{font-size:17px;margin:0}.sub{font-size:13px;color:var(--muted);margin:4px 0 0}.pill{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:#f3f2ed;color:#5c5e58;font-size:12px;font-weight:700;white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}.drop{min-height:184px;border:1.5px dashed #e4bf78;background:#fffbf2;border-radius:15px;display:grid;place-items:center;text-align:center;padding:22px;transition:.18s}.drop.drag{background:#fff0cf;border-color:var(--brand-dark)}.upload-icon{width:45px;height:45px;margin:0 auto 8px;border-radius:14px;background:#ffedc2;display:grid;place-items:center;font-size:23px}.drop h3{font-size:16px;margin:0 0 4px}.drop p{color:var(--muted);font-size:13px;margin:0}.drop .actions{display:flex;justify-content:center;gap:9px;margin-top:13px}.btn{border:0;border-radius:10px;padding:10px 15px;background:var(--brand);color:#30240e;font-weight:800}.btn:hover{background:#e99a19}.btn.secondary{background:#f2f0e9;color:#4c4d47}.btn.secondary:hover{background:#e9e6dc}.btn.danger{background:#fff0ee;color:var(--red)}.btn:disabled{opacity:.5;cursor:not-allowed}.file-input{display:none}.file-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:15px 0 8px}.file-toolbar strong{font-size:13px}.text-button{border:0;background:transparent;color:#80601e;font-weight:700;padding:5px}.file-list{display:grid;gap:7px;max-height:240px;overflow:auto}.file-row{display:grid;grid-template-columns:36px minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line);border-radius:11px}.file-icon{width:34px;height:34px;border-radius:10px;background:#f4f1e8;display:grid;place-items:center;font-size:11px;font-weight:850;color:#76643d}.file-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:700}.file-size{font-size:11px;color:var(--muted)}.remove-file{border:0;background:transparent;color:#8b8d84;font-size:19px;line-height:1;padding:5px}.empty-files{color:#92938c;text-align:center;font-size:13px;padding:16px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 14px;margin-top:19px}.field label{display:block;font-size:12px;font-weight:750;margin-bottom:5px;color:#4b4d46}.field input,.field select{width:100%;min-height:42px;border:1px solid #deddd5;border-radius:10px;background:white;padding:9px 11px;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:#d39327;box-shadow:0 0 0 3px #f5a62320}.field select[multiple]{height:90px}.field .hint{font-size:11px;color:var(--muted);margin:4px 0 0}.span-2{grid-column:1/-1}.fine{font-size:12px;color:var(--muted);margin:14px 0}.submit-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:15px}.notice{font-size:12px;color:var(--muted)}.live{min-height:22px;color:#77500d;font-size:13px;margin:10px 0 0}.tasks{display:grid;gap:10px}.task{border:1px solid var(--line);border-radius:13px;padding:13px 14px;background:#fff}.task-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.task-name{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.badge{font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;background:#fff2d6;color:#795000;white-space:nowrap}.badge.completed{background:#e7f5ed;color:var(--green)}.badge.failed{background:#fff0ee;color:var(--red)}.progress{height:4px;border-radius:99px;background:#eeeae1;margin:10px 0 8px;overflow:hidden}.progress i{height:100%;width:22%;display:block;background:var(--brand);border-radius:99px;animation:move 1.3s ease-in-out infinite alternate}.progress i.done{width:100%;background:var(--green);animation:none}.progress i.error{width:100%;background:var(--red);animation:none}@keyframes move{to{width:76%}}.task-meta{font-size:11px;color:var(--muted);overflow-wrap:anywhere}.task details{font-size:12px;color:#777970;margin-top:6px}.task summary{cursor:pointer}.task ul{margin:5px 0;padding-left:19px}.recognition{font-size:11px;color:#71602f;margin:7px 0 0}.side{display:grid;gap:16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{padding:11px 8px;background:#f8f7f3;border-radius:12px;text-align:center}.stat strong{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}.steps{list-style:none;margin:15px 0 0;padding:0;display:grid;gap:13px}.steps li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#65675f}.stepnum{width:24px;height:24px;border-radius:8px;background:var(--soft);color:#7d5109;display:grid;place-items:center;flex:none;font-size:12px}.stepcopy strong{color:#363831}.api-label{display:block;font-size:12px;font-weight:700;margin:12px 0 5px}.api-row{display:flex;gap:7px}.api-row input{min-width:0;flex:1;border:1px solid var(--line);border-radius:9px;padding:9px 10px;font-size:12px}.api-row button{padding:8px 11px;font-size:12px}.tiny{font-size:11px;color:var(--muted);margin:8px 0 0;overflow-wrap:anywhere}.table-card{margin-top:20px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left;min-width:620px}th,td{padding:11px 10px;border-bottom:1px solid #efeee8;font-size:12px}th{color:#81837b;font-weight:700}td{color:#4e5049}.task-id{font-family:ui-monospace,SFMono-Regular,monospace;font-size:11px;color:#777}.footer{text-align:center;color:#96978f;font-size:12px;padding:25px 0 0}
+    @media(max-width:980px){.layout{grid-template-columns:1fr}.side{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{align-items:flex-start;flex-direction:column}}@media(max-width:600px){.shell{padding-top:13px}.top{margin-bottom:20px}.nav a{padding:8px 9px;font-size:12px}.brand small{display:none}.side{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.span-2{grid-column:auto}.submit-row{align-items:flex-start;flex-direction:column}.submit-row .btn{width:100%}.file-row{grid-template-columns:34px minmax(0,1fr) auto}.file-size{display:none}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <a class="brand" id="brandLink" href="#"><span class="logo" aria-hidden="true">听</span><span><strong>听知</strong><small>有声知识 · 随时可问</small></span></a>
+      <nav class="nav" aria-label="主导航"><a id="chatLink" href="#">知识问答</a><a class="active" href="/html" aria-current="page">资料导入</a></nav>
+    </header>
+
+    <section class="hero">
+      <div><p class="eyebrow">KNOWLEDGE LIBRARY · IMPORT CENTER</p><h1>把好内容，批量收进知识库</h1><p>支持多文件一次添加，逐个追踪解析、元数据识别与入库状态。</p></div>
+      <span class="pill"><i class="dot"></i>支持 PDF · MD · TXT · JSON</span>
+    </section>
+
+    <div class="layout">
+      <div class="stack">
+        <form class="card" id="uploadForm">
+          <div class="card-head"><div><h2>选择资料</h2><p class="sub">可拖入多个文件；可选元数据会作为本批次的默认值，留空时尝试自动识别。</p></div><span class="pill" id="selectionCount">0 个文件</span></div>
+          <div class="drop" id="dropZone">
+            <div><div class="upload-icon" aria-hidden="true">↥</div><h3>拖拽文件到这里，或浏览选择</h3><p>支持多选；每个文件会建立独立任务并分别显示结果</p><div class="actions"><button class="btn" id="chooseFiles" type="button">选择多个文件</button><button class="btn secondary" id="chooseFolder" type="button">选择文件夹</button></div></div>
+          </div>
+          <input class="file-input" id="fileInput" type="file" multiple accept=".pdf,.md,.txt,.json,application/pdf,text/markdown,text/plain,application/json">
+          <input class="file-input" id="folderInput" type="file" multiple webkitdirectory accept=".pdf,.md,.txt,.json">
+
+          <div class="file-toolbar"><strong>本批次文件 <span id="fileCountLabel">0</span></strong><button class="text-button" id="clearFiles" type="button" hidden>清空列表</button></div>
+          <div class="file-list" id="fileList" aria-live="polite"><div class="empty-files">还没有选择文件</div></div>
+
+          <div class="fields">
+            <div class="field"><label for="contentType">本批次内容类型</label><select id="contentType" name="content_type"><option>有声书信息</option><option>书籍简介</option><option>作者介绍</option><option>听书笔记</option><option>推荐运营资料</option><option>用户评论摘要</option><option>常见问答</option></select><p class="hint">此类型将应用于本批次所有文件</p></div>
+            <div class="field"><label for="bookTitle">书名（可选）</label><input id="bookTitle" name="book_name" autocomplete="off" placeholder="留空则逐个文件自动识别"></div>
+            <div class="field"><label for="author">作者（可选）</label><input id="author" name="author_name" autocomplete="off" placeholder="留空则自动识别"></div>
+            <div class="field"><label for="category">类别/标签（可选）</label><select id="category" name="category"><option value="">自动识别</option><option>小说</option><option>非小说</option><option>儿童</option><option>教育</option><option>历史</option><option>科幻</option><option>悬疑</option><option>心理</option><option>商业</option><option>文学</option><option>其他</option></select></div>
+            <div class="field"><label for="sceneTags">场景标签（可多选）</label><select id="sceneTags" name="scene_tags" multiple><option>通勤</option><option>睡前</option><option>学习</option><option>运动</option><option>亲子</option><option>放松</option><option>旅行</option><option>家庭</option></select><p class="hint">按住 Ctrl / Command 可多选</p></div>
+            <div class="field"><label for="duration">有声书时长（可选）</label><input id="duration" name="duration" placeholder="例如：12 小时 30 分钟"></div>
+            <div class="field span-2"><label for="itemName">条目名称（可选）</label><input id="itemName" name="item_name" autocomplete="off" placeholder="留空时自动使用识别出的书名"></div>
+          </div>
+          <p class="fine">手工填写的元数据将作为所选文件的共同默认值；不同书籍建议留空书名、作者和类别，让系统逐份识别。请确保你拥有上传内容的使用权。</p>
+          <div class="submit-row"><span class="notice">每份文件独立入队；单个文件失败不会阻止本批次其他文件。</span><button class="btn" id="submitBtn" type="submit">开始批量导入</button></div>
+          <p class="live" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <section class="card"><div class="card-head"><div><h2>导入任务</h2><p class="sub">查看每份资料的进度、阶段日志与识别出的元数据。</p></div><button class="text-button" id="clearFinished" type="button">清除已结束</button></div><div class="tasks" id="taskList" aria-live="polite"><div class="empty-files">提交文件后，任务会显示在这里</div></div></section>
+      </div>
+
+      <aside class="side">
+        <section class="card"><div class="card-head"><div><h2>本批次概览</h2><p class="sub">任务独立处理，互不影响</p></div></div><div class="stats"><div class="stat"><strong id="statTotal">0</strong><span>总任务</span></div><div class="stat"><strong id="statDone">0</strong><span>已完成</span></div><div class="stat"><strong id="statFailed">0</strong><span>失败</span></div></div><ol class="steps"><li><b class="stepnum">1</b><span class="stepcopy"><strong>添加多份资料</strong><br>支持拖放、文件多选或选择文件夹。</span></li><li><b class="stepnum">2</b><span class="stepcopy"><strong>识别并写入知识库</strong><br>每个文件单独追踪，实时查看处理阶段。</span></li><li><b class="stepnum">3</b><span class="stepcopy"><strong>检查识别结果</strong><br>完成后可查看书名、作者、类别和时长。</span></li></ol></section>
+        <section class="card"><h2>服务连接</h2><p class="tiny">默认使用当前站点；通过 file:// 打开页面时使用本地导入服务。</p><label class="api-label" for="apiBase">导入 API 地址</label><div class="api-row"><input id="apiBase" inputmode="url" aria-label="导入 API 地址"><button class="btn secondary" id="saveApi" type="button">保存</button></div><p class="tiny" id="apiMessage" role="status"></p></section>
+      </aside>
+    </div>
+
+    <section class="card table-card"><div class="card-head"><div><h2>最近导入</h2><p class="sub">记录保存在当前浏览器中。</p></div></div><div class="table-wrap"><table><thead><tr><th>文件 / 书名</th><th>内容类型</th><th>提交时间</th><th>状态</th><th>任务编号</th></tr></thead><tbody id="recentImports"><tr><td colspan="5">暂无导入记录</td></tr></tbody></table></div></section>
+    <footer class="footer">听知 · 让知识安静地为你服务</footer>
+  </main>
+  <script>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const accepted = /\.(pdf|md|txt|json)$/i;
+      const params = new URLSearchParams(location.search);
+      const defaultBase = location.protocol === 'http:' || location.protocol === 'https:' ? location.origin : 'http://127.0.0.1:8000';
+      const readStorage = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); } catch (_) { return fallback; } };
+      const storedBase = (() => { try { return localStorage.getItem('tingzhi_import_api') || ''; } catch (_) { return ''; } })();
+      const apiBaseInput = $('apiBase');
+      apiBaseInput.value = (params.get('api') || storedBase || defaultBase).replace(/\/$/, '');
+      const apiBase = () => apiBaseInput.value.trim().replace(/\/$/, '');
+      function siblingBase(base, port) {
+        try { const url = new URL(base); if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') url.port = port; return url.origin; }
+        catch (_) { return `http://127.0.0.1:${port}`; }
+      }
+      const chatBase = params.get('chatApi') || (() => { try { return localStorage.getItem('tingzhi_query_api') || ''; } catch (_) { return ''; } })() || siblingBase(defaultBase, '8001');
+      $('chatLink').href = `${chatBase.replace(/\/$/, '')}/html`;
+      $('brandLink').href = `${chatBase.replace(/\/$/, '')}/html`;
+
+      let selectedFiles = [];
+      const taskCards = new Map();
+      function formatSize(size) { return size < 1024 * 1024 ? `${(size / 1024).toFixed(0)} KB` : `${(size / 1024 / 1024).toFixed(2)} MB`; }
+      function addFiles(fileList) {
+        let rejected = 0;
+        for (const file of Array.from(fileList || [])) {
+          if (!accepted.test(file.name)) { rejected++; continue; }
+          const key = `${file.name}:${file.size}:${file.lastModified}`;
+          if (!selectedFiles.some((item) => item.key === key)) selectedFiles.push({key, file});
+        }
+        renderFiles();
+        $('formStatus').textContent = rejected ? `${rejected} 个文件格式不支持，已跳过；仅接受 PDF、MD、TXT、JSON。` : '';
+      }
+      function renderFiles() {
+        const list = $('fileList');
+        list.replaceChildren();
+        $('selectionCount').textContent = `${selectedFiles.length} 个文件`;
+        $('fileCountLabel').textContent = String(selectedFiles.length);
+        $('clearFiles').hidden = selectedFiles.length === 0;
+        if (!selectedFiles.length) {
+          const empty = document.createElement('div'); empty.className = 'empty-files'; empty.textContent = '还没有选择文件'; list.append(empty); return;
+        }
+        for (const {key, file} of selectedFiles) {
+          const row = document.createElement('div'); row.className = 'file-row';
+          const icon = document.createElement('span'); icon.className = 'file-icon'; icon.textContent = file.name.split('.').pop().toUpperCase();
+          const name = document.createElement('span'); name.className = 'file-name'; name.title = file.webkitRelativePath || file.name; name.textContent = file.webkitRelativePath || file.name;
+          const size = document.createElement('span'); size.className = 'file-size'; size.textContent = formatSize(file.size);
+          const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-file'; remove.setAttribute('aria-label', `移除 ${file.name}`); remove.textContent = '×';
+          remove.addEventListener('click', () => { selectedFiles = selectedFiles.filter((item) => item.key !== key); renderFiles(); });
+          row.append(icon, name, size, remove); list.append(row);
+        }
+      }
+      $('chooseFiles').addEventListener('click', () => $('fileInput').click());
+      $('chooseFolder').addEventListener('click', () => $('folderInput').click());
+      $('fileInput').addEventListener('change', (event) => { addFiles(event.target.files); event.target.value = ''; });
+      $('folderInput').addEventListener('change', (event) => { addFiles(event.target.files); event.target.value = ''; });
+      $('clearFiles').addEventListener('click', () => { selectedFiles = []; renderFiles(); });
+      const dropZone = $('dropZone');
+      for (const eventName of ['dragenter', 'dragover']) dropZone.addEventListener(eventName, (event) => { event.preventDefault(); dropZone.classList.add('drag'); });
+      for (const eventName of ['dragleave', 'drop']) dropZone.addEventListener(eventName, (event) => { event.preventDefault(); dropZone.classList.remove('drag'); });
+      dropZone.addEventListener('drop', (event) => addFiles(event.dataTransfer.files));
+
+      $('saveApi').addEventListener('click', () => {
+        try { new URL(apiBase()); localStorage.setItem('tingzhi_import_api', apiBase()); $('apiMessage').textContent = '导入服务地址已保存。'; }
+        catch (_) { $('apiMessage').textContent = '请输入有效的服务地址，例如 http://127.0.0.1:8000。'; }
+      });
+
+      function taskStatusText(status) {
+        return ({pending:'排队中', processing:'解析中', completed:'已完成', failed:'导入失败'})[status] || '已提交';
+      }
+      function updateStats() {
+        const tasks = Array.from(taskCards.values());
+        $('statTotal').textContent = String(tasks.length);
+        $('statDone').textContent = String(tasks.filter((task) => task.status === 'completed').length);
+        $('statFailed').textContent = String(tasks.filter((task) => task.status === 'failed').length);
+      }
+      function saveRecent(record) {
+        const rows = readStorage('tingzhi_recent_imports', []);
+        rows.unshift(record);
+        try { localStorage.setItem('tingzhi_recent_imports', JSON.stringify(rows.slice(0, 30))); } catch (_) {}
+        renderRecent();
+      }
+      function renderRecent() {
+        const body = $('recentImports'), rows = readStorage('tingzhi_recent_imports', []);
+        body.replaceChildren();
+        if (!rows.length) { const row = body.insertRow(); const cell = row.insertCell(); cell.colSpan = 5; cell.textContent = '暂无导入记录'; return; }
+        for (const item of rows) {
+          const row = body.insertRow();
+          for (const value of [item.bookName || item.fileName, item.type, item.time, taskStatusText(item.status), item.taskId]) {
+            const cell = row.insertCell(); cell.textContent = value || '';
+            if (value === item.taskId) cell.className = 'task-id';
+          }
+        }
+      }
+      function updateRecentStatus(taskId, status, bookName) {
+        const rows = readStorage('tingzhi_recent_imports', []);
+        const record = rows.find((item) => item.taskId === taskId);
+        if (record) { record.status = status; if (bookName) record.bookName = bookName; try { localStorage.setItem('tingzhi_recent_imports', JSON.stringify(rows)); } catch (_) {} }
+        renderRecent();
+      }
+      function showMetadata(card, metadata) {
+        const values = [['书名',metadata.book_name],['作者',metadata.author_name],['类别',metadata.category],['场景',Array.isArray(metadata.scene_tags)?metadata.scene_tags.join('、'):metadata.scene_tags],['时长',metadata.duration]].filter(([,value]) => value);
+        if (!values.length) return;
+        card.metadata.textContent = `识别元数据：${values.map(([label,value]) => `${label} ${value}`).join(' · ')}`;
+        card.metadata.hidden = false;
+        updateRecentStatus(card.taskId, card.status, metadata.book_name);
+      }
+      function createTaskCard(file, taskId, type, time) {
+        const container = $('taskList');
+        if (container.querySelector('.empty-files')) container.replaceChildren();
+        const article = document.createElement('article'); article.className = 'task';
+        const header = document.createElement('div'); header.className = 'task-head';
+        const name = document.createElement('strong'); name.className = 'task-name'; name.textContent = file.name; name.title = file.name;
+        const badge = document.createElement('span'); badge.className = 'badge'; badge.textContent = '排队中';
+        header.append(name, badge);
+        const progress = document.createElement('div'); progress.className = 'progress'; const bar = document.createElement('i'); progress.append(bar);
+        const id = document.createElement('div'); id.className = 'task-meta'; id.textContent = `任务编号：${taskId}`;
+        const metadata = document.createElement('p'); metadata.className = 'recognition'; metadata.hidden = true;
+        const details = document.createElement('details'); const summary = document.createElement('summary'); summary.textContent = '处理阶段'; const list = document.createElement('ul'); details.append(summary, list);
+        article.append(header, progress, id, metadata, details); container.prepend(article);
+        const card = {taskId, status:'pending', badge, bar, summary, list, metadata, stopped:false, events:null};
+        taskCards.set(taskId, card);
+        const refresh = async () => {
+          if (card.stopped) return;
+          try {
+            const response = await fetch(`${apiBase()}/status/${encodeURIComponent(taskId)}`);
+            if (!response.ok) throw new Error(`状态查询失败（${response.status}）`);
+            const data = await response.json();
+            const done = Array.isArray(data.done_list) ? data.done_list : [];
+            const running = Array.isArray(data.running_list) ? data.running_list : [];
+            card.status = data.status || card.status;
+            card.badge.textContent = taskStatusText(card.status);
+            card.badge.className = `badge${card.status === 'completed' ? ' completed' : card.status === 'failed' ? ' failed' : ''}`;
+            if (card.status === 'completed') { card.bar.classList.add('done'); card.stopped = true; }
+            else if (card.status === 'failed') { card.bar.classList.add('error'); card.stopped = true; }
+            card.summary.textContent = `处理阶段 · 已完成 ${done.length}，进行中 ${running.length}`;
+            card.list.replaceChildren();
+            for (const value of [...done.map((item) => `✓ ${item}`), ...running.map((item) => `进行中：${item}`)]) { const li = document.createElement('li'); li.textContent = String(value); card.list.append(li); }
+            if (!card.list.childElementCount) { const li = document.createElement('li'); li.textContent = '等待处理阶段更新'; card.list.append(li); }
+            showMetadata(card, data.metadata || {});
+            updateRecentStatus(taskId, card.status, data.metadata?.book_name);
+            updateStats();
+            if (!card.stopped) window.setTimeout(refresh, 1800);
+          } catch (error) {
+            id.textContent = `任务编号：${taskId} · ${error.message}，稍后重试`;
+            if (!card.stopped) window.setTimeout(refresh, 3500);
+          }
+        };
+        card.events = new EventSource(`${apiBase()}/stream/${encodeURIComponent(taskId)}`);
+        card.events.addEventListener('progress', (event) => {
+          try {
+            const data = JSON.parse(event.data || '{}');
+            card.status = data.status || card.status;
+            card.summary.textContent = `处理阶段 · 已完成 ${(data.done_list || []).length}，进行中 ${(data.running_list || []).length}`;
+            card.list.replaceChildren();
+            for (const value of [...(data.done_list || []).map((item) => `✓ ${item}`), ...(data.running_list || []).map((item) => `进行中：${item}`)]) { const li = document.createElement('li'); li.textContent = String(value); card.list.append(li); }
+            card.badge.textContent = taskStatusText(card.status); updateStats();
+          } catch (_) {}
+        });
+        card.events.addEventListener('final', (event) => {
+          try { const data = JSON.parse(event.data || '{}'); card.status = data.status || 'completed'; showMetadata(card, data.metadata || {}); }
+          catch (_) { card.status = 'completed'; }
+          card.stopped = true; card.events.close(); card.badge.textContent = taskStatusText(card.status); card.badge.className = `badge ${card.status === 'failed' ? 'failed' : 'completed'}`; card.bar.classList.add(card.status === 'failed' ? 'error' : 'done'); updateRecentStatus(taskId, card.status); updateStats();
+        });
+        card.events.addEventListener('error', (event) => {
+          if (event.data) {
+            try { const data = JSON.parse(event.data); id.textContent = `任务编号：${taskId} · ${data.error || '导入失败'}`; } catch (_) {}
+            card.status = 'failed'; card.stopped = true; card.events.close(); card.badge.textContent = '导入失败'; card.badge.className = 'badge failed'; card.bar.classList.add('error'); updateRecentStatus(taskId, 'failed'); updateStats();
+          }
+        });
+        window.setTimeout(refresh, 600);
+        saveRecent({fileName:file.name,bookName:'',type,time,taskId,status:'pending'});
+        updateStats();
+        return card;
+      }
+
+      $('uploadForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!selectedFiles.length) { $('formStatus').textContent = '请先选择一个或多个文件。'; $('chooseFiles').focus(); return; }
+        try { new URL(apiBase()); } catch (_) { $('formStatus').textContent = '请填写有效的导入 API 地址。'; apiBaseInput.focus(); return; }
+        const button = $('submitBtn'); button.disabled = true;
+        const batch = selectedFiles.slice(), type = $('contentType').value, time = new Date().toLocaleString('zh-CN');
+        const endpoint = type === '听书笔记' ? '/import/note' : type === '常见问答' ? '/import/qa' : '/import/audiobook';
+        const tags = Array.from($('sceneTags').selectedOptions, (option) => option.value).join(',');
+        let submitted = 0, failed = 0;
+        $('formStatus').textContent = `开始提交 ${batch.length} 个文件…`;
+        for (let index = 0; index < batch.length; index++) {
+          const file = batch[index].file;
+          $('formStatus').textContent = `正在提交第 ${index + 1}/${batch.length} 个文件：${file.name}`;
+          try {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('book_name', $('bookTitle').value.trim());
+            formData.append('item_name', $('itemName').value.trim());
+            formData.append('author_name', $('author').value.trim());
+            formData.append('content_type', type);
+            formData.append('category', $('category').value);
+            formData.append('scene_tags', tags);
+            formData.append('duration', $('duration').value.trim());
+            formData.append('source_file', file.name);
+            const response = await fetch(`${apiBase()}${endpoint}`, {method:'POST', body:formData});
+            if (!response.ok) {
+              const message = await response.text();
+              throw new Error(`HTTP ${response.status}: ${message.slice(0, 250)}`);
+            }
+            const result = await response.json();
+            if (!Array.isArray(result.task_ids) || !result.task_ids[0]) throw new Error('服务端未返回任务编号');
+            createTaskCard(file, result.task_ids[0], type, time); submitted++;
+          } catch (error) {
+            failed++;
+            const container = $('taskList');
+            if (container.querySelector('.empty-files')) container.replaceChildren();
+            const article = document.createElement('article'); article.className = 'task';
+            const header = document.createElement('div'); header.className = 'task-head';
+            const name = document.createElement('strong'); name.className = 'task-name'; name.textContent = file.name;
+            const badge = document.createElement('span'); badge.className = 'badge failed'; badge.textContent = '提交失败';
+            const message = document.createElement('div'); message.className = 'task-meta'; message.textContent = error.message;
+            header.append(name, badge); article.append(header, message); container.prepend(article);
+          }
+        }
+        selectedFiles = selectedFiles.filter((item) => !batch.some((submittedFile) => submittedFile.key === item.key));
+        renderFiles();
+        $('formStatus').textContent = `批次提交结束：${submitted} 个任务已创建${failed ? `，${failed} 个文件提交失败（其他文件已继续）` : ''}。`;
+        button.disabled = false;
+      });
+
+      $('clearFinished').addEventListener('click', () => {
+        for (const [taskId, card] of taskCards) {
+          if (!card.stopped) continue;
+          card.events?.close();
+          card.bar.closest('.task')?.remove();
+          taskCards.delete(taskId);
+        }
+        if (!$('taskList').childElementCount) { const empty = document.createElement('div'); empty.className = 'empty-files'; empty.textContent = '提交文件后，任务会显示在这里'; $('taskList').append(empty); }
+        updateStats();
+      });
+      renderFiles();
+      renderRecent();
+    })();
+  </script>
+</body>
+</html>

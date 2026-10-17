@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f59e0b">
+  <title>书籍详情 · 听知</title>
+  <style>
+    :root{--ink:#292a2c;--muted:#77766f;--paper:#faf8f4;--panel:#fff;--line:#e9e4dc;--brand:#f59e0b;--soft:#fff3d8;--shadow:0 14px 40px #37281010}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Noto Sans SC","PingFang SC",system-ui,sans-serif;line-height:1.6}
+    button,input,textarea{font:inherit}a{color:inherit}.shell{max-width:1100px;margin:auto;padding:22px clamp(16px,4vw,48px) 50px}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;gap:16px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+    .logo{width:40px;height:40px;border-radius:14px;background:var(--brand);display:grid;place-items:center;font-size:20px;font-weight:900}
+    .brand strong,.brand small{display:block}.brand small{font-size:11px;color:var(--muted)}.nav{display:flex;gap:8px}.nav a{padding:8px 11px;border-radius:10px;text-decoration:none}
+    .nav a:hover{background:#f0ece5}.hero{display:grid;grid-template-columns:190px 1fr;gap:36px;align-items:center;padding:clamp(22px,5vw,46px);border:1px solid var(--line);border-radius:23px;background:linear-gradient(120deg,#fff7e7,#fff 64%);box-shadow:var(--shadow)}
+    .cover{aspect-ratio:3/4;border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;color:#fffaf0;background:linear-gradient(150deg,#70461f,#bd7627 52%,#e7a53d);box-shadow:0 16px 30px #573b2033}
+    .cover small{letter-spacing:.15em}.cover b{font:700 28px/1.25 Georgia,"Noto Serif SC",serif;overflow-wrap:anywhere}.cover span{font-size:13px}
+    h1{font-size:clamp(27px,5vw,40px);margin:4px 0}.eyebrow{color:#9d680e;font-size:12px;font-weight:800;letter-spacing:.12em}
+    .muted{color:var(--muted)}.tags{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tag{padding:5px 10px;border-radius:99px;background:var(--soft);font-size:12px;color:#784d0b}
+    .tabs,.panel{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:18px}.tabs{display:flex;gap:5px;padding:10px;overflow:auto}
+    .tab{border:0;background:transparent;padding:10px 13px;border-radius:10px;white-space:nowrap;color:#69655d;cursor:pointer}.tab[aria-selected=true]{background:var(--soft);color:#704900;font-weight:750}
+    .panel{padding:clamp(18px,4vw,32px);min-height:180px}.panel h2{margin-top:0}.panel[hidden]{display:none}.empty{color:var(--muted)}
+    .source{border:1px solid var(--line);padding:12px;border-radius:12px;margin:10px 0;background:#fff}.source small{display:block;color:var(--muted);margin-bottom:5px}
+    .note-form textarea{width:100%;min-height:100px;padding:12px;border:1px solid var(--line);border-radius:12px}.button{border:0;background:var(--brand);padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+    .error{color:#a53b2c}.footer{text-align:center;color:var(--muted);font-size:12px;padding:28px 0}
+    @media(max-width:720px){.hero{grid-template-columns:100px 1fr;gap:18px;padding:20px}.cover{padding:10px}.cover b{font-size:18px}.nav a{padding:7px;font-size:12px}}
+    @media(max-width:520px){.top{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr}.cover{width:120px}.tabs{margin-top:14px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <a class="brand" id="homeLink" href="#"><span class="logo" aria-hidden="true">听</span><span><strong>听知</strong><small>有声知识 · 随时可问</small></span></a>
+      <nav class="nav" aria-label="主导航"><a id="chatLink" href="#">知识问答</a><a id="importLink" href="#">导入管理</a></nav>
+    </header>
+    <section class="hero" aria-labelledby="bookTitle">
+      <div class="cover" aria-hidden="true"><small>TINGZHI · AUDIO LIBRARY</small><b id="coverTitle">书籍资料</b><span id="coverAuthor">作者待确认</span></div>
+      <div><p class="eyebrow">听书知识库 · 书籍详情</p><h1 id="bookTitle">正在加载…</h1><p class="muted" id="author">作者信息待加载</p>
+        <div class="tags"><span class="tag" id="category">类别待确认</span><span class="tag" id="duration">时长待确认</span></div>
+        <p id="summary" class="muted">正在从知识库检索书籍资料…</p>
+      </div>
+    </section>
+    <div class="tabs" role="tablist" aria-label="书籍详情分类">
+      <button class="tab" role="tab" id="tab-intro" aria-controls="panel-intro" aria-selected="true">内容简介</button>
+      <button class="tab" role="tab" id="tab-author" aria-controls="panel-author" aria-selected="false">作者介绍</button>
+      <button class="tab" role="tab" id="tab-audio" aria-controls="panel-audio" aria-selected="false">演播信息</button>
+      <button class="tab" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false">听书笔记</button>
+      <button class="tab" role="tab" id="tab-faq" aria-controls="panel-faq" aria-selected="false">常见问答</button>
+      <button class="tab" role="tab" id="tab-reviews" aria-controls="panel-reviews" aria-selected="false">评论摘要</button>
+    </div>
+    <section class="panel" id="panel-intro" role="tabpanel" aria-labelledby="tab-intro"><h2>内容简介与亮点</h2><div id="introContent" class="empty">尚未加载书籍资料。</div></section>
+    <section class="panel" id="panel-author" role="tabpanel" aria-labelledby="tab-author" hidden><h2>作者介绍</h2><div id="authorContent" class="empty">知识库未提供作者介绍。</div></section>
+    <section class="panel" id="panel-audio" role="tabpanel" aria-labelledby="tab-audio" hidden><h2>演播与音频信息</h2><div id="audioContent" class="empty">知识库未提供演播信息。</div></section>
+    <section class="panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes" hidden><h2>听书笔记</h2><div id="notesContent" class="empty">知识库未提供听书笔记。</div><form class="note-form" id="noteForm"><label for="noteInput">我的私人笔记（保存在此浏览器）</label><textarea id="noteInput" placeholder="写下一条个人听书笔记…"></textarea><button class="button" type="submit">保存笔记</button></form><div id="personalNotes"></div></section>
+    <section class="panel" id="panel-faq" role="tabpanel" aria-labelledby="tab-faq" hidden><h2>常见问答</h2><div id="faqContent" class="empty">知识库未提供常见问答。</div></section>
+    <section class="panel" id="panel-reviews" role="tabpanel" aria-labelledby="tab-reviews" hidden><h2>评论摘要</h2><div id="reviewsContent" class="empty">知识库未提供评论摘要。</div></section>
+    <section class="panel"><h2>引用来源</h2><div id="sources" class="empty">加载来源中…</div></section>
+    <p id="errorMessage" class="error" role="alert"></p>
+    <footer class="footer">听知 · 阅读、倾听与探索，都从好奇开始。</footer>
+  </main>
+  <script>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const bookName = (params.get('title') || '').trim();
+      const stored = (key) => { try { return localStorage.getItem(key) || ''; } catch (_) { return ''; } };
+      const queryApi = (params.get('api') || stored('tingzhi_query_api') || 'http://127.0.0.1:8001').replace(/\/$/, '');
+      const importApi = stored('tingzhi_import_api') || 'http://127.0.0.1:8000';
+      document.getElementById('chatLink').href = `${queryApi}/html?book=${encodeURIComponent(bookName)}`;
+      document.getElementById('importLink').href = `${importApi}/html`;
+      document.getElementById('homeLink').href = `${queryApi}/html`;
+      document.title = `${bookName || '书籍详情'} · 听知`;
+      document.getElementById('bookTitle').textContent = bookName || '未指定书名';
+      document.getElementById('coverTitle').textContent = bookName || '书籍资料';
+      const panels = [...document.querySelectorAll('[role="tab"]')];
+      panels.forEach((tab, index) => tab.addEventListener('click', () => {
+        panels.forEach((item) => {
+          const active = item === tab;
+          item.setAttribute('aria-selected', String(active));
+          document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+        });
+      }));
+      panels.forEach((tab, index) => tab.addEventListener('keydown', (event) => {
+        if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? panels.length - 1
+          : event.key === 'ArrowRight' ? (index + 1) % panels.length : (index - 1 + panels.length) % panels.length;
+        event.preventDefault(); panels[next].focus(); panels[next].click();
+      }));
+      const setText = (id, text) => { document.getElementById(id).textContent = text; };
+      const showDocs = (id, docs) => {
+        const container = document.getElementById(id); container.replaceChildren();
+        if (!docs.length) { container.textContent = '知识库未提供此类资料。'; container.className = 'empty'; return; }
+        container.className = '';
+        for (const doc of docs) {
+          const card = document.createElement('article'); card.className = 'source';
+          const meta = document.createElement('small');
+          meta.textContent = [doc.title, doc.source_file || doc.file_title].filter(Boolean).join(' · ') || '知识库资料';
+          const content = document.createElement('div'); content.textContent = doc.content || '';
+          card.append(meta, content); container.append(card);
+        }
+      };
+      const notesKey = `tingzhi_book_notes_${bookName}`;
+      const renderNotes = () => {
+        const container = document.getElementById('personalNotes'); container.replaceChildren();
+        let notes = []; try { notes = JSON.parse(localStorage.getItem(notesKey) || '[]'); } catch (_) {}
+        for (const note of notes) {
+          const row = document.createElement('article'); row.className = 'source';
+          row.textContent = `${note.text} · ${new Date(note.createdAt).toLocaleString('zh-CN')}`; container.append(row);
+        }
+      };
+      document.getElementById('noteForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const input = document.getElementById('noteInput'), text = input.value.trim(); if (!text) return;
+        let notes = []; try { notes = JSON.parse(localStorage.getItem(notesKey) || '[]'); } catch (_) {}
+        notes.unshift({text, createdAt:Date.now()});
+        try { localStorage.setItem(notesKey, JSON.stringify(notes.slice(0, 100))); input.value = ''; renderNotes(); }
+        catch (_) { document.getElementById('errorMessage').textContent = '浏览器存储不可用，笔记未能保存。'; }
+      });
+      async function loadDetails() {
+        if (!bookName) { setText('summary', '请在链接中提供书名后查询详情。'); return; }
+        try {
+          const response = await fetch(`${queryApi}/query/book_detail`, {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({book_name:bookName, is_stream:false})
+          });
+          if (!response.ok) throw new Error(`详情查询失败（${response.status}）`);
+          const result = await response.json(), docs = Array.isArray(result.details) ? result.details : [];
+          setText('summary', result.answer || '知识库暂无简介资料。');
+          const first = docs[0] || {};
+          if (first.author_name) { setText('author', `作者 · ${first.author_name}`); setText('coverAuthor', first.author_name); }
+          if (first.category) setText('category', first.category);
+          if (first.duration) setText('duration', `时长 · ${first.duration}`);
+          const byType = (type) => docs.filter((doc) => doc.content_type === type);
+          showDocs('introContent', [...byType('书籍简介'), ...byType('有声书信息')]);
+          showDocs('authorContent', byType('作者介绍'));
+          showDocs('audioContent', byType('有声书信息'));
+          showDocs('notesContent', byType('听书笔记'));
+          showDocs('faqContent', byType('常见问答'));
+          showDocs('reviewsContent', byType('用户评论摘要'));
+          showDocs('sources', docs);
+        } catch (error) {
+          setText('summary', '暂时无法加载书籍详情。');
+          document.getElementById('errorMessage').textContent = error.message;
+          for (const id of ['introContent','authorContent','audioContent','notesContent','faqContent','reviewsContent','sources']) showDocs(id, []);
+        }
+      }
+      renderNotes(); loadDetails();
+    })();
+  </script>
+</body>
+</html>

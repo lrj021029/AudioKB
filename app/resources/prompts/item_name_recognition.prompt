@@ -1,0 +1,13 @@
+请从以下信息中识别有声书条目名称、书名和内容类型：
+文件名：{file_title}
+已抽取书名：{book_name}
+已抽取内容类型：{content_type}
+
+正文切片（用于辅助识别）：
+{context}
+
+要求：
+1. 只返回 JSON 对象，字段为 item_name、book_name、content_type；
+2. item_name 必须是可用于知识检索的明确条目名称；书籍资料优先使用书名；
+3. content_type 从系统提供的 7 种内容类型中选择；如果无法识别，沿用已抽取类型；
+4. 不要输出 JSON 以外的解释。

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f59e0b">
+  <title>知识问答 · 听知</title>
+  <style>
+    :root{--ink:#292a2c;--muted:#78766f;--paper:#faf8f4;--panel:#fff;--line:#e9e4dc;--brand:#f59e0b;--brand-dark:#9a5a00;--soft:#fff3d8;--shadow:0 14px 42px #37281012}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Noto Sans SC","PingFang SC",system-ui,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}.app{height:100dvh;min-height:560px;display:grid;grid-template-rows:auto 1fr auto;max-width:1440px;margin:auto;background:#fff;border-inline:1px solid var(--line)}.top{display:flex;align-items:center;gap:18px;padding:14px clamp(14px,3vw,32px);border-bottom:1px solid var(--line);background:#fff}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:230px}.logo{width:40px;height:40px;display:grid;place-items:center;border-radius:14px;background:var(--brand);font-size:20px;font-weight:900;color:#3b2a0d}.brand strong{display:block;font-size:16px}.brand small{color:var(--muted);font-size:11px}.nav{display:flex;gap:4px}.nav a{padding:9px 12px;border-radius:10px;text-decoration:none;color:#68645d;font-size:13px}.nav a:hover{background:#f5f1e9}.nav .active{background:var(--soft);color:#744700;font-weight:750}.actions{margin-left:auto;display:flex;gap:10px;align-items:center}.pill{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:6px 10px;color:var(--muted);white-space:nowrap}.pill.online{color:#21744d;background:#eaf7f0;border-color:#d8eedf}.btn{border:0;border-radius:10px;padding:9px 12px;background:#f2efe8;color:#554f45;font-size:12px;font-weight:700}.btn:hover{background:#eae4d9}.btn.primary{background:var(--brand);color:#33250e}.btn.primary:hover{background:#e89306}.btn:disabled{opacity:.55;cursor:not-allowed}.workspace{min-height:0;display:grid;grid-template-columns:250px minmax(0,1fr) 260px}.left,.right{padding:22px 18px;background:#fcfbf8;overflow:auto}.left{border-right:1px solid var(--line)}.right{border-left:1px solid var(--line)}.section-label{font-size:11px;letter-spacing:.11em;font-weight:800;color:#9b9488;margin:3px 0 12px}.new-chat{width:100%;padding:10px;border:1px solid #eed9b5;background:#fffaf0;border-radius:11px;text-align:left;color:#70500f;font-weight:700}.history{margin-top:24px}.history-list{display:grid;gap:5px}.history-item{display:block;width:100%;border:0;border-radius:9px;background:transparent;text-align:left;padding:9px;color:#69665f;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-item:hover{background:#f2eee6}.side-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;margin-bottom:13px}.side-card h2{font-size:13px;margin:0 0 9px}.side-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}.shortcut{width:100%;display:flex;justify-content:space-between;align-items:center;border:0;border-top:1px solid #f1eee8;background:#fff;text-align:left;padding:10px 0 2px;margin-top:9px;color:#5b554b;font-size:12px}.shortcut span:last-child{color:#b27608}.chat{overflow:auto;padding:clamp(18px,4vw,44px);background:linear-gradient(180deg,#fffaf0 0,#fff 180px);scroll-behavior:smooth}.welcome{max-width:740px;margin:4vh auto 26px}.kicker{font-size:12px;color:#9b6509;font-weight:800;letter-spacing:.12em}.welcome h1{font-size:clamp(27px,4vw,42px);letter-spacing:-.04em;margin:8px 0}.welcome p{color:var(--muted);font-size:14px;margin:0}.suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.suggestions button{border:1px solid var(--line);border-radius:99px;background:#fff;padding:8px 12px;color:#68645d;font-size:12px}.suggestions button:hover{border-color:#efc06f;background:#fffbf2}.msg{display:flex;align-items:flex-start;gap:11px;max-width:860px;margin:16px auto}.msg.user{flex-direction:row-reverse}.avatar{flex:0 0 34px;width:34px;height:34px;border-radius:12px;background:#fff1d0;display:grid;place-items:center;font-size:13px;font-weight:800;color:#78510a}.msg.user .avatar{background:#393a3c;color:#fff}.message-wrap{min-width:0;max-width:min(780px,88%)}.bubble{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.75;font-size:14px;border:1px solid var(--line);border-radius:4px 15px 15px;padding:12px 15px;background:#fff;box-shadow:0 4px 15px #37281008}.msg.user .bubble{background:#3b3c3d;border-color:#3b3c3d;color:#fff;border-radius:15px 4px 15px 15px}.meta{font-size:11px;color:#9a968e;margin:5px 2px}.citations{margin-top:10px;padding-top:9px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.citations strong{display:block;margin-bottom:5px;color:#625d54}.citation-links{display:flex;flex-wrap:wrap;gap:7px}.citation-links a{color:#885900;text-decoration:none;border:1px solid #f0dfbe;background:#fffaf0;padding:4px 8px;border-radius:8px;overflow-wrap:anywhere}.progress{margin-top:10px;border:1px dashed #e9dfcb;border-radius:11px;padding:8px 10px}.progress summary{cursor:pointer;font-size:11px;color:var(--muted)}.progress ul{padding-left:18px;margin:6px 0 0;color:#777167;font-size:11px}.message-tools{display:flex;gap:6px;margin-top:7px}.message-tools button{border:0;background:transparent;color:#8a6a30;font-size:11px;padding:3px 4px}.message-tools button:hover{text-decoration:underline}.typing{color:#827b70;font-size:13px}.composer-area{border-top:1px solid var(--line);padding:14px clamp(14px,4vw,48px) 17px;background:#fff}.composer{max-width:860px;margin:auto;display:flex;align-items:end;gap:10px;border:1px solid #e4dfd5;border-radius:16px;padding:9px;background:#fff;box-shadow:0 6px 22px #37281009}.composer:focus-within{border-color:#e5b85c;box-shadow:0 0 0 3px #f59e0b1b}.composer textarea{border:0;outline:0;resize:vertical;min-height:42px;max-height:140px;flex:1;padding:8px;background:transparent;font-size:14px;line-height:1.5}.send{border:0;border-radius:11px;background:var(--brand);color:#30220c;font-weight:800;padding:10px 17px}.send:disabled{opacity:.55;cursor:not-allowed}.hint{max-width:860px;margin:6px auto 0;color:#a29d94;font-size:10px}.dialog-backdrop{position:fixed;inset:0;background:#1e1b1680;display:none;place-items:center;padding:18px;z-index:5}.dialog-backdrop.open{display:grid}.dialog{width:min(520px,100%);background:#fff;border-radius:18px;padding:22px;box-shadow:var(--shadow)}.dialog h2{font-size:18px;margin:0 0 12px}.dialog textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:11px;padding:12px;resize:vertical}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.api-config{display:flex;gap:5px;margin-top:9px}.api-config input{width:100%;min-width:0;padding:7px;border:1px solid var(--line);border-radius:8px;font-size:11px}.api-config button{border:0;border-radius:8px;padding:7px;background:#f2efe8;font-size:11px}@media(max-width:1000px){.workspace{grid-template-columns:210px minmax(0,1fr)}.right{display:none}}@media(max-width:680px){.app{height:100dvh;min-height:500px}.top{flex-wrap:wrap;gap:8px;padding:10px 12px}.brand{min-width:auto;flex:1}.nav{order:3;width:100%}.nav a{padding:6px 9px}.actions{gap:6px}.pill{display:none}.workspace{grid-template-columns:minmax(0,1fr)}.left{display:none}.chat{padding:20px 14px}.message-wrap{max-width:calc(100% - 42px)}.composer-area{padding:10px 12px}.welcome{margin-top:2vh}.welcome h1{font-size:29px}}
+  </style>
+  <style>
+    .citation-card{display:flex;flex-direction:column;gap:3px;padding:10px 12px;margin-top:8px;border:1px solid #e9e4dc;border-radius:10px;background:#fff}
+    .citation-card span{font-size:12px;color:#78766f}.citation-card a{font-size:12px;color:#9a5a00}
+    #sessionSearch{width:100%;margin:8px 0;padding:9px 10px;border:1px solid #e9e4dc;border-radius:9px;background:#fff}
+    .bubble h1,.bubble h2,.bubble h3{font-size:1.1em;margin:.6em 0 .3em}.bubble p{margin:.4em 0}.bubble ul,.bubble ol{padding-left:22px}
+    .query-options{display:flex;align-items:center;justify-content:flex-end;gap:18px;max-width:900px;margin:0 auto 8px;padding:0 12px;color:#67675f;font-size:12px}
+    .web-search-control,.output-mode-control{display:flex;align-items:center;gap:9px}
+    .web-search-control input{position:absolute;opacity:0;width:1px;height:1px}
+    .web-switch{position:relative;width:36px;height:21px;border-radius:99px;background:#d8d8d0;transition:background .18s;cursor:pointer;flex:none}
+    .web-switch:after{content:"";position:absolute;left:3px;top:3px;width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0002;transition:transform .18s}
+    .web-search-control input:checked+.web-switch{background:#d58b14}
+    .web-search-control input:checked+.web-switch:after{transform:translateX(15px)}
+    .web-search-control input:focus-visible+.web-switch{outline:3px solid #f5a62355;outline-offset:2px}
+    .web-state{color:#92928b}
+    .output-mode-control select{border:1px solid #e4dfd5;border-radius:9px;background:#fff;color:#554f45;padding:6px 9px;font-size:12px}
+    @media(max-width:680px){.query-options{justify-content:space-between;gap:8px;padding-inline:2px}.web-search-control{gap:6px}.web-state{display:none}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <a class="brand" href="chat.html"><span class="logo" aria-hidden="true">听</span><span><strong>听知</strong><small>有声知识 · 随时可问</small></span></a>
+      <nav class="nav" aria-label="主导航"><a class="active" href="/html" aria-current="page">知识问答</a><a id="importLink" href="http://127.0.0.1:8000/html">导入书籍</a></nav>
+      <div class="actions"><span class="pill" id="apiStatus" role="status">API：连接中</span><button class="btn" id="clearHistory" type="button">清空对话</button></div>
+    </header>
+    <div class="workspace">
+      <aside class="left" aria-label="对话记录"><button class="new-chat" id="newChat" type="button">＋ 开始新对话</button><section class="history"><h2 class="section-label">最近会话</h2><input id="sessionSearch" type="search" placeholder="搜索会话" aria-label="搜索历史会话"><div class="history-list" id="historyList"><p class="tiny" style="font-size:12px;color:#999">正在加载历史…</p></div></section></aside>
+      <section class="chat" id="chat" aria-label="聊天消息" aria-live="polite" aria-relevant="additions text">
+        <div class="welcome" id="welcome"><span class="kicker">YOUR AUDIOBOOK KNOWLEDGE BASE</span><h1>你好，今天想听懂什么？</h1><p>向你的知识库提问，或从一个主题开始探索。回答会尽可能附上可追溯的来源。</p><div class="suggestions" aria-label="推荐问题"><button type="button">帮我梳理一段重要历史</button><button type="button">从心理学角度解释习惯</button><button type="button">推荐一本适合通勤听的书</button></div></div>
+      </section>
+      <aside class="right" aria-label="探索工具">
+        <section class="side-card"><h2>继续探索</h2><p>从一个主题开始，延伸你的阅读线索。</p><button class="shortcut" type="button" data-prompt="根据知识库推荐一本适合我的书，并说明推荐理由。"><span>为我推荐一本书</span><span>↗</span></button><button class="shortcut" type="button" id="openDetail"><span>打开书籍详情</span><span>↗</span></button><button class="shortcut" type="button" id="openNote"><span>记下一条阅读笔记</span><span>＋</span></button></section>
+        <section class="side-card"><h2>服务连接</h2><p>可填写查询 API 地址；file:// 打开时默认连接本机 8001 端口。</p><div class="api-config"><input id="apiBase" aria-label="查询 API 地址" inputmode="url"><button id="saveApi" type="button">保存</button></div><p id="apiMessage" role="status" style="margin-top:7px"></p></section>
+        <section class="side-card"><h2>关于引用</h2><p>回答会展示知识库实际命中的书名、作者、内容类型与来源文件；点击可访问的来源链接查看原资料。</p></section>
+      </aside>
+    </div>
+    <footer class="composer-area"><div class="query-options"><div class="output-mode-control"><label for="outputMode">回答方式</label><select id="outputMode" aria-label="选择流式或非流式输出"><option value="stream">流式输出</option><option value="complete">非流式输出</option></select></div><div class="web-search-control"><input id="webSearchToggle" type="checkbox" role="switch" aria-label="本次查询启用联网检索"><label class="web-switch" for="webSearchToggle" aria-hidden="true"></label><label for="webSearchToggle">联网检索</label><span class="web-state" id="webSearchState">关闭 · 仅用本地知识库</span></div></div><form class="composer" id="queryForm"><label for="queryInput" class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0)">输入你的问题</label><textarea id="queryInput" placeholder="问问你的知识库…（Enter 发送，Shift + Enter 换行）" rows="1"></textarea><button class="send" id="sendButton" type="submit">发送</button></form><p class="hint">流式输出会实时显示生成内容与进度；非流式输出将在处理完成后一次性显示答案。联网检索默认关闭；开启后会将问题发送到外部搜索服务。</p></footer>
+  </main>
+  <div class="dialog-backdrop" id="noteDialog" role="dialog" aria-modal="true" aria-labelledby="noteTitle"><section class="dialog"><h2 id="noteTitle">阅读笔记</h2><label for="noteText" class="tiny">笔记保存在此浏览器中</label><textarea id="noteText" placeholder="写下你的想法…"></textarea><div class="dialog-actions"><button class="btn" id="cancelNote" type="button">取消</button><button class="btn primary" id="saveNote" type="button">保存笔记</button></div></section></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+  <script>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const query = new URLSearchParams(location.search);
+      const fallback = location.protocol === 'http:' || location.protocol === 'https:' ? location.origin : 'http://127.0.0.1:8001';
+      const getStored = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
+      const setStored = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
+      let base = (query.get('api') || getStored('tingzhi_query_api') || fallback).replace(/\/$/, '');
+      $('apiBase').value = base;
+      const webSearchToggle = $('webSearchToggle');
+      webSearchToggle.checked = getStored('tingzhi_web_search_enabled') === 'true';
+      function updateWebSearchLabel() {
+        const enabled = webSearchToggle.checked;
+        $('webSearchState').textContent = enabled ? '开启 · 将查询外部网页' : '关闭 · 仅用本地知识库';
+        setStored('tingzhi_web_search_enabled', String(enabled));
+      }
+      webSearchToggle.addEventListener('change', updateWebSearchLabel);
+      updateWebSearchLabel();
+      function siblingBase(source, port) {
+        try { const url = new URL(source); if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') url.port = port; return url.origin; }
+        catch (_) { return `http://127.0.0.1:${port}`; }
+      }
+      const importBase = query.get('importApi') || getStored('tingzhi_import_api') || siblingBase(fallback, '8000');
+      $('importLink').href = `${importBase.replace(/\/$/, '')}/html`;
+      let sessionId = getStored('tingzhi_session_id');
+      if (!sessionId) { sessionId = `sess-${crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`}`; setStored('tingzhi_session_id', sessionId); }
+      const sessionList = () => { try { const value = JSON.parse(getStored('tingzhi_sessions') || '[]'); return Array.isArray(value) ? value : []; } catch (_) { return []; } };
+      function rememberSession(lastQuery = '') {
+        const items = sessionList().filter((item) => item.id !== sessionId);
+        items.unshift({id:sessionId, lastQuery:lastQuery || '新会话', updatedAt:Date.now()});
+        setStored('tingzhi_sessions', JSON.stringify(items.slice(0, 40)));
+        renderSessions();
+      }
+      const chat = $('chat'), input = $('queryInput'), send = $('sendButton');
+      const outputMode = $('outputMode');
+      outputMode.value = getStored('tingzhi_output_mode') === 'complete' ? 'complete' : 'stream';
+      outputMode.addEventListener('change', () => setStored('tingzhi_output_mode', outputMode.value));
+      const make = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text !== undefined) node.textContent = text; return node; };
+      const timeLabel = (ts) => { const value = Number(ts); const date = Number.isFinite(value) && value > 0 ? new Date(value < 1e12 ? value * 1000 : value) : new Date(); return date.toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'}); };
+      function allowedUrl(raw) { try { const value = new URL(raw, base); return ['http:', 'https:'].includes(value.protocol) ? value.href : ''; } catch (_) { return ''; } }
+      function linksFrom(text, imageUrls = []) {
+        const found = [...(String(text || '').match(/https?:\/\/[^\s<>"'`]+/g) || []), ...(Array.isArray(imageUrls) ? imageUrls : [])];
+        const links = [], seen = new Set();
+        for (let value of found) { value = String(value).replace(/[),，。；;\]】）]+$/g, ''); const safe = allowedUrl(value); if (safe && !seen.has(safe)) { seen.add(safe); links.push(safe); } }
+        return links;
+      }
+      function addCitations(wrap, answer, images, citations = []) {
+        const links = linksFrom(answer, images);
+        if (!links.length && !citations.length) return;
+        const section = make('section', 'citations'); section.append(make('strong', '', '引用来源'));
+        citations.forEach((citation) => {
+          const card = make('article', 'citation-card');
+          const isWebSource = citation.type === 'web';
+          const title = isWebSource
+            ? (citation.title || '联网搜索结果')
+            : (citation.book_name || citation.item_name || '未标注书名');
+          card.append(make('b', '', title));
+          const details = isWebSource
+            ? ['联网搜索', citation.url || citation.source_path]
+            : [citation.author_name, citation.content_type, citation.source_file];
+          card.append(make('span', '', details.filter(Boolean).join(' · ')));
+          const sourceUrl = citation.url || citation.source_path;
+          if (sourceUrl && /^https?:\/\//i.test(sourceUrl)) {
+            const safeSourceUrl = allowedUrl(sourceUrl);
+            if (!safeSourceUrl) return;
+            const link = make('a', '', '打开来源'); link.href = safeSourceUrl;
+            link.target = '_blank'; link.rel = 'noopener noreferrer'; card.append(link);
+          }
+          section.append(card);
+        });
+        if (!links.length) { wrap.append(section); return; }
+        const list = make('div', 'citation-links');
+        links.forEach((href, index) => { const a = make('a', '', `来源 ${index + 1}`); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.setAttribute('aria-label', `在新窗口打开来源 ${index + 1}`); list.append(a); });
+        section.append(list); wrap.append(section);
+      }
+      function addMessage(role, text, options = {}) {
+        const row = make('article', `msg ${role}`); row.setAttribute('aria-label', role === 'user' ? '你的提问' : '听知回答');
+        row.append(make('div', 'avatar', role === 'user' ? '我' : '听'));
+        const wrap = make('div', 'message-wrap'), bubble = make('div', 'bubble', String(text || ''));
+        wrap.append(bubble, make('div', 'meta', timeLabel(options.ts)));
+        if (role !== 'user') {
+          if (options.progress) { const details = make('details', 'progress'); const summary = make('summary', '', '处理进度'); const list = make('ul'); details.append(summary, list); wrap.append(details); row._progress = {details, summary, list}; }
+          addCitations(wrap, text, options.images, options.citations || []);
+          const tools = make('div', 'message-tools');
+          const note = make('button', '', '记为笔记'); note.type = 'button'; note.addEventListener('click', () => openNote(String(text || '')));
+          const detail = make('button', '', '查看书籍详情'); detail.type = 'button'; detail.addEventListener('click', () => openBookDetail());
+          tools.append(note, detail); wrap.append(tools);
+        }
+        row.append(wrap); chat.append(row); chat.scrollTop = chat.scrollHeight; return row;
+      }
+      function setProgress(row, done = [], running = [], status = 'processing') {
+        const target = row?._progress; if (!target) return;
+        const doneItems = Array.isArray(done) ? done : [], runningItems = Array.isArray(running) ? running : [];
+        target.summary.textContent = `处理进度 · 已完成 ${doneItems.length} · 进行中 ${runningItems.length} · ${status === 'completed' ? '完成' : status === 'failed' ? '失败' : '处理中'}`;
+        target.list.replaceChildren();
+        for (const item of [...doneItems.map((v) => `✓ ${v}`), ...runningItems.map((v) => `进行中：${v}`)]) target.list.append(make('li', '', String(item)));
+        if (!target.list.childElementCount) target.list.append(make('li', '', '等待处理阶段更新'));
+      }
+      function completeRow(row, answer, options = {}) {
+        const bubble = row.querySelector('.bubble');
+        const answerText = String(answer || '（已完成，但未返回答案）');
+        if (window.marked && window.DOMPurify) bubble.innerHTML = window.DOMPurify.sanitize(window.marked.parse(answerText));
+        else bubble.textContent = answerText;
+        if (row._progress) { row._progress.details.open = false; row._progress.details.removeAttribute('open'); }
+        row.querySelector('.citations')?.remove(); addCitations(row.querySelector('.message-wrap'), answer, options.images || [], options.citations || []);
+      }
+      async function apiHealth() {
+        try { const response = await fetch(`${base}/health`); if (!response.ok) throw new Error(); $('apiStatus').textContent = 'API：已连接'; $('apiStatus').classList.add('online'); }
+        catch (_) { $('apiStatus').textContent = 'API：未连接'; $('apiStatus').classList.remove('online'); }
+      }
+      async function loadHistory() {
+        try {
+          const response = await fetch(`${base}/query/history/${encodeURIComponent(sessionId)}`); if (!response.ok) return;
+          const data = await response.json(), items = Array.isArray(data.items) ? data.items.slice().reverse() : [];
+          if (items.length) { $('welcome').hidden = true; for (const item of items) addMessage(item.role === 'user' ? 'user' : 'bot', item.text || '', {ts:item.ts, images:item.image_urls, citations:item.citations || []}); }
+          rememberSession(items.filter((item) => item.role === 'user').at(-1)?.text || '最近会话');
+        } catch (_) { $('historyList').replaceChildren(make('p', '', '暂时无法读取历史')); }
+      }
+      function renderProgress(row, data) { setProgress(row, data.done_list, data.running_list, data.status); }
+      function listenStream(streamSession, row) {
+        return new Promise((resolve, reject) => {
+          const source = new EventSource(`${base}/stream/${encodeURIComponent(streamSession)}`);
+          let answer = '', settled = false;
+          const timeout = window.setTimeout(() => { source.close(); if (!settled) { settled = true; reject(new Error('等待回答超时，请重试。')); } }, 150000);
+          const done = (callback) => { if (settled) return; settled = true; clearTimeout(timeout); source.close(); callback(); };
+          source.addEventListener('progress', (event) => { try { const data = JSON.parse(event.data || '{}'); renderProgress(row, data); } catch (_) {} });
+          source.addEventListener('delta', (event) => { try { const data = JSON.parse(event.data || '{}'); answer += String(data.delta || ''); row.querySelector('.bubble').textContent = answer || '正在整理答案…'; chat.scrollTop = chat.scrollHeight; } catch (_) {} });
+          source.addEventListener('final', (event) => { try { const data = JSON.parse(event.data || '{}'); completeRow(row, typeof data.answer === 'string' ? data.answer : answer, {images:data.image_urls, citations:data.citations || []}); done(resolve); } catch (error) { done(() => reject(error)); } });
+          source.addEventListener('error', (event) => {
+            if (event.data) { try { const data = JSON.parse(event.data); done(() => reject(new Error(data.error || '查询服务返回错误。'))); } catch (_) { done(() => reject(new Error('查询服务返回错误。'))); } }
+          });
+          source.onerror = () => { if (source.readyState === EventSource.CLOSED && !settled) done(() => reject(new Error('流式连接中断，请检查服务地址后重试。'))); };
+        });
+      }
+      async function submit(text) {
+        if (!text || send.disabled) return;
+        $('welcome').hidden = true; addMessage('user', text); rememberSession(text); input.value = ''; send.disabled = true;
+        const row = addMessage('bot', '正在连接知识库…', {progress:true});
+        try {
+          const streaming = outputMode.value === 'stream';
+          const response = await fetch(`${base}/query`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({query:text,session_id:sessionId,is_stream:streaming,web_search_enabled:webSearchToggle.checked})});
+          if (!response.ok) throw new Error((await response.text()) || `查询失败（${response.status}）`);
+          const data = await response.json();
+          if (streaming && (data.stream_id || data.session_id)) await listenStream(data.stream_id || data.session_id, row);
+          else { renderProgress(row, {done_list:data.done_list, status:'completed'}); completeRow(row, data.answer, {images:data.image_urls, citations:data.citations || []}); }
+        } catch (error) { completeRow(row, `暂时无法完成查询：${error.message}`); }
+        finally { send.disabled = false; input.focus(); }
+      }
+      $('queryForm').addEventListener('submit', (event) => { event.preventDefault(); submit(input.value.trim()); });
+      input.addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); $('queryForm').requestSubmit(); } });
+      document.querySelectorAll('.suggestions button').forEach((button) => button.addEventListener('click', () => submit(button.textContent)));
+      document.querySelectorAll('[data-prompt]').forEach((button) => button.addEventListener('click', () => submit(button.dataset.prompt)));
+      $('saveApi').addEventListener('click', () => { try { const value = new URL($('apiBase').value.trim()).origin; base = value; setStored('tingzhi_query_api', value); $('apiMessage').textContent = '查询服务地址已保存。'; apiHealth(); } catch (_) { $('apiMessage').textContent = '请输入有效的 API 地址。'; } });
+      $('clearHistory').addEventListener('click', async () => {
+        if (!window.confirm('确定清空当前会话的历史记录吗？')) return;
+        try { const response = await fetch(`${base}/history/${encodeURIComponent(sessionId)}`, {method:'DELETE'}); if (!response.ok) throw new Error(); }
+        catch (_) { window.alert('服务端清空失败，请稍后重试。'); return; }
+        document.querySelectorAll('.msg').forEach((item) => item.remove()); $('welcome').hidden = false; $('welcome').removeAttribute('hidden'); $('historyList').replaceChildren(make('p', '', '还没有历史提问'));
+      });
+      $('newChat').addEventListener('click', () => { sessionId = `sess-${Date.now()}-${Math.random().toString(36).slice(2)}`; setStored('tingzhi_session_id', sessionId); document.querySelectorAll('.msg').forEach((item) => item.remove()); $('welcome').hidden = false; $('welcome').removeAttribute('hidden'); rememberSession('新会话'); });
+      $('openDetail').addEventListener('click', openBookDetail);
+      function renderSessions() {
+        const history = $('historyList'), searchText = ($('sessionSearch').value || '').trim().toLowerCase();
+        const items = sessionList().sort((left, right) => right.updatedAt - left.updatedAt)
+          .filter((item) => `${item.lastQuery} ${item.id}`.toLowerCase().includes(searchText));
+        history.replaceChildren();
+        if (!items.length) { history.append(make('p', '', '还没有历史会话')); return; }
+        for (const item of items) {
+          const button = make('button', 'history-item', item.lastQuery || '新会话');
+          button.type = 'button'; button.title = item.lastQuery || item.id;
+          button.addEventListener('click', () => {
+            sessionId = item.id; setStored('tingzhi_session_id', sessionId);
+            document.querySelectorAll('.msg').forEach((message) => message.remove());
+            $('welcome').hidden = false; $('welcome').removeAttribute('hidden'); loadHistory();
+          });
+          history.append(button);
+        }
+      }
+      $('sessionSearch').addEventListener('input', renderSessions);
+      function openBookDetail() { const title = window.prompt('请输入书名：', query.get('book') || ''); if (title !== null && title.trim()) location.href = `${base}/book-detail?title=${encodeURIComponent(title.trim())}&api=${encodeURIComponent(base)}`; }
+      function openNote(seed = '') { $('noteText').value = seed; $('noteDialog').classList.add('open'); $('noteText').focus(); }
+      $('openNote').addEventListener('click', () => openNote());
+      $('cancelNote').addEventListener('click', () => $('noteDialog').classList.remove('open'));
+      $('saveNote').addEventListener('click', () => { const value = $('noteText').value.trim(); if (value) { const notes = (() => { try { return JSON.parse(getStored('tingzhi_notes') || '[]'); } catch (_) { return []; } })(); notes.unshift({text:value, createdAt:Date.now()}); setStored('tingzhi_notes', JSON.stringify(notes.slice(0,100))); } $('noteDialog').classList.remove('open'); });
+      $('noteDialog').addEventListener('click', (event) => { if (event.target === $('noteDialog')) $('noteDialog').classList.remove('open'); });
+      apiHealth(); loadHistory(); setTimeout(() => input.focus(), 180);
+    })();
+  </script>
+</body>
+</html>

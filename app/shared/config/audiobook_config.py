@@ -1,0 +1,61 @@
+"""领域词汇表和默认的有声读物知识库"""
+from enum import StrEnum
+
+
+class ContentType(StrEnum):
+    AUDIOBOOK_INFO = "有声书信息"
+    BOOK_INTRODUCTION = "书籍简介"
+    AUTHOR_INTRODUCTION = "作者介绍"
+    LISTENING_NOTES = "听书笔记"
+    EDITORIAL_RECOMMENDATION = "推荐运营资料"
+    USER_REVIEW_SUMMARY = "用户评论摘要"
+    FAQ = "常见问答"
+
+
+class Category(StrEnum):
+    FICTION = "小说"
+    NONFICTION = "非小说"
+    CHILDREN = "儿童"
+    EDUCATION = "教育"
+    HISTORY = "历史"
+    SCIENCE_FICTION = "科幻"
+    MYSTERY = "悬疑"
+    PSYCHOLOGY = "心理"
+    BUSINESS = "商业"
+    LITERATURE = "文学"
+    OTHER = "其他"
+
+
+class SceneTag(StrEnum):
+    COMMUTE = "通勤"
+    BEDTIME = "睡前"
+    STUDY = "学习"
+    WORKOUT = "运动"
+    PARENTING = "亲子"
+    RELAXATION = "放松"
+    TRAVEL = "旅行"
+    FAMILY = "家庭"
+
+
+CONTENT_TYPES = tuple(item.value for item in ContentType)
+CATEGORIES = tuple(item.value for item in Category)
+SCENE_TAGS = tuple(item.value for item in SceneTag)
+
+AUDIOBOOK_RECOMMEND_TOP_K = 12
+AUDIOBOOK_DETAIL_TOP_K = 12
+AUDIOBOOK_SEARCH_TOP_K = 20
+AUDIOBOOK_DENSE_WEIGHT = 0.55
+AUDIOBOOK_SPARSE_WEIGHT = 0.45
+AUDIOBOOK_MIN_RERANK_SCORE = 0.0
+METADATA_EXTRACT_MAX_CHARS = 12000
+MILVUS_RETRY_ATTEMPTS = 3
+MILVUS_RETRY_BASE_DELAY_SECONDS = 0.5
+
+MILVUS_CONTENT_TYPE_MAX_LENGTH = 64
+MILVUS_BOOK_NAME_MAX_LENGTH = 512
+MILVUS_AUTHOR_NAME_MAX_LENGTH = 256
+MILVUS_CATEGORY_MAX_LENGTH = 128
+MILVUS_SCENE_TAGS_MAX_LENGTH = 256
+MILVUS_DURATION_MAX_LENGTH = 64
+MILVUS_SOURCE_FILE_MAX_LENGTH = 512
+MILVUS_SOURCE_PATH_MAX_LENGTH = 1024
